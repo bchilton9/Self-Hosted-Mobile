@@ -1,0 +1,41 @@
+name: Sync .env to stack folders
+
+on:
+  push:
+    paths:
+      - '.env'
+      - 'stacks/**'
+      - '.github/workflows/sync-env.yml'
+
+jobs:
+  copy-env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Copy .env to all stack folders
+        run: |
+          for dir in stacks/*/; do
+            cp .env "$dir/.env"
+          done
+
+      - name: Check for changes
+        id: check_diff
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add stacks/*/.env
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected."
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push updated stacks.env files
+        if: steps.check_diff.outputs.changed == 'true'
+        run: |
+          git commit -m "Sync .env to all stacks"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:main
