@@ -1,3 +1,7 @@
+# Not Functional Yet
+
+___
+
 # 📱 Self-Hosted Better Mobile
 
 A lightweight customization project that improves mobile usability across self-hosted apps.
