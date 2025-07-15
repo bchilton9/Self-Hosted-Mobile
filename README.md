@@ -76,9 +76,11 @@ ___
 
 ## 📸 Screenshots
 
+### Homepage
+<img src=“images/IMG_4422.jpeg” alt=“Homepage” style=“width:100%; max-width:500px;”>
+
 ### Mobile Launcher
-![Home Screen](images/IMG_4422.jpeg)
-![Mobile Launcher](images/IMG_4423.jpeg)
+<img src=“images/IMG_4423.jpeg” alt=“Mobile Launcher” style=“width:100%; max-width:500px;”>
 
 ___
 
