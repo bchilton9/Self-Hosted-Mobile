@@ -20,18 +20,6 @@ ___
 
 ___
 
-## ✅ Supported Apps (So Far)
-
-| App       | Status        | Notes                                  |
-|————|—————|-—————————————|
-| Organizr  | ✅ Implemented | Mobile launcher, layout fixes          |
-| Sonarr    | 🚧 Planned     | Tab tweaks and layout injection        |
-| Radarr    | 🚧 Planned     | Tab tweaks and layout injection        |
-| Tautulli  | 🚧 Planned     | Mobile graph view adjustments          |
-| More...   | 🔜 Coming Soon | Add your requests in Issues or PRs     |
-
-___
-
 ## 🚀 How to Use with Organizr
 
 ### 1. Add the JavaScript to Organizr
@@ -42,9 +30,8 @@ In Organizr:
 ```
     (function(){
       const script = document.createElement(‘script’);
-      script.src = “https://mobile.chilsoft.com/organizr/mobile.js”;
+      script.src = “https://mobile.chilsoft.com/organizr/main.js”;
       script.type = “text/javascript”;
-      script.onload = () => console.log(“✅ mobile.js loaded dynamically”);
       document.head.appendChild(script);
     })();
 ```
