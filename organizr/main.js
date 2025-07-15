@@ -10,7 +10,7 @@ console.log("🧠 main.js loaded");
     const script = document.createElement("script");
     script.src = url;
     script.type = "text/javascript";
-    script.onload = () => console.log(`✅ ${name} loaded`);
+    script.onload = () => console.log(`✅ ${name} loading`);
     script.onerror = () => console.error(`❌ Failed to load ${name}`);
     document.head.appendChild(script);
   };

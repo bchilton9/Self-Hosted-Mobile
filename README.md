@@ -74,6 +74,14 @@ We’re just getting started. New mobile features and app support will be rolled
 
 ___
 
+## 📸 Screenshots
+
+### Mobile Launcher
+![Home Screen](images/IMG_4422.jpeg)
+![Mobile Launcher](images/IMG_4423.jpeg)
+
+___
+
 ## 📜 License
 
 MIT – free to use and modify. Not affiliated with Organizr, Theme Park, or any app mentioned.
