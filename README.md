@@ -1,4 +1,5 @@
-# Not Functional Yet
+
+# Not Fully Functional Yet
 
 ___
 
@@ -27,13 +28,13 @@ ___
 In Organizr:
 - Go to **Settings** → **Customization** → **Custom JavaScript**
 - Paste the following:
-```
-    (function(){
-      const script = document.createElement(‘script’);
-      script.src = “https://mobile.chilsoft.com/organizr/main.js”;
-      script.type = “text/javascript”;
-      document.head.appendChild(script);
-    })();
+```html
+(function(){
+  const script = document.createElement('script');
+  script.src = "https://mobile.chilsoft.com/organizr/main.js";
+  script.type = "text/javascript";
+  document.head.appendChild(script);
+})();
 ```
 Save, then reload the page on a mobile device to see the new launcher.
 
@@ -41,11 +42,29 @@ Save, then reload the page on a mobile device to see the new launcher.
 
 ___
 
-## ✨ Goals
+### 🧩 Toggle Scripts in `main.js`
 
-- Make mobile-first enhancements for self-hosted dashboards
-- Keep everything client-side (injected, not installed)
-- Fix UI the original devs didn’t optimize for touchscreens 😎
+`main.js` loads all features by default — but you can disable individual modules with URL parameters.
+
+**Supported toggles:**
+
+| Parameter      | Function                      |
+|----------------|-------------------------------|
+| `?nomenu`      | Disable the mobile launcher   |
+| `?nosettings`  | Disable settings enhancements |
+
+**Example:**
+
+```html
+(function(){
+  const script = document.createElement('script');
+  script.src = "https://mobile.chilsoft.com/organizr/main.js?nomenu";
+  script.type = "text/javascript";
+  document.head.appendChild(script);
+})();
+```
+
+This example disables only the mobile launcher, but you can combine flags like `?nomenu&nosettings` to disable both.
 
 ___
 

@@ -1,0 +1,1 @@
+console.log("⚙️ settings.js placeholder loaded");
