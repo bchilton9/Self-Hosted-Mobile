@@ -16,11 +16,11 @@ console.log("🧠 main.js loaded");
   };
 
   if (!disableMenu) {
-    loadScript("menu.js", "https://web.chilton.xyz/mobile/organizr/menu.js");
+    loadScript("menu.js", "https://mobile.chilsoft.com/organizr/menu.js");
   }
 
   if (!disableSettings) {
-    loadScript("settings.js", "https://web.chilton.xyz/mobile/organizr/settings.js");
+    loadScript("settings.js", "https://mobile.chilsoft.com/organizr/settings.js");
   }
 
 })();
