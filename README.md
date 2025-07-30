@@ -1,5 +1,5 @@
-![License](https://img.shields.io/github/license/bchilton9/wings-cert-copy-from-npm)
-![Last Commit](https://img.shields.io/github/last-commit/bchilton9/wings-cert-copy-from-npm)
+![License](https://img.shields.io/github/license/bchilton9/Self-Hosted-Mobile)
+![Last Commit](https://img.shields.io/github/last-commit/bchilton9/Self-Hosted-Mobile)
 ![JavaScript](https://img.shields.io/badge/Made%20with-JavaScript-f7df1e?logo=javascript&logoColor=black)
 
 # Not Fully Functional Yet
