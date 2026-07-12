@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 $projectTitle = 'Self-Hosted Mobile';
 $projectTagline = 'Mobile-friendly access to your self-hosted services';
+$githubUrl = 'https://github.com/bchilton9/Self-Hosted-Mobile';
 
 $readmeCandidates = [
     __DIR__ . '/README.md',
@@ -20,35 +21,9 @@ foreach ($readmeCandidates as $candidate) {
     }
 }
 
-$parsedownFile = dirname(__DIR__) . '/includes/Parsedown.php';
-
-if (!is_file($parsedownFile)) {
-    http_response_code(500);
-
-    exit(
-        'Markdown parser missing: '
-        . htmlspecialchars($parsedownFile, ENT_QUOTES, 'UTF-8')
-    );
-}
-
-require_once $parsedownFile;
-
 $markdown = $readmeFile !== null
     ? (string) file_get_contents($readmeFile)
-    : '# README not found'
-        . PHP_EOL
-        . PHP_EOL
-        . 'This project does not currently have a README.md file.';
-
-$parsedown = new Parsedown();
-
-/*
- * These are repositories you control, so README HTML is allowed.
- * Change this to true if you want all embedded HTML escaped.
- */
-$parsedown->setSafeMode(false);
-
-$readmeHtml = $parsedown->text($markdown);
+    : "# README not found\n\nThis project does not currently have a README.md file.";
 
 function h(string $value): string
 {
@@ -158,7 +133,9 @@ function h(string $value): string
         }
 
         .markdown-content table {
-            width: 100%;
+            display: block;
+            max-width: 100%;
+            overflow-x: auto;
             border-collapse: collapse;
             margin: 1rem 0;
         }
@@ -211,10 +188,8 @@ function h(string $value): string
             >
                 <a href="/">ChilSoft Home</a>
 
-                <a href="./">Project Home</a>
-
                 <a
-                    href="https://github.com/bchilton9/Self-Hosted-Mobile"
+                    href="<?= h($githubUrl) ?>"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -224,8 +199,11 @@ function h(string $value): string
         </section>
 
         <section class="card-box">
-            <article class="markdown-content">
-                <?= $readmeHtml ?>
+            <article
+                class="markdown-content"
+                id="readme-content"
+            >
+                <p>Loading README…</p>
             </article>
         </section>
     </main>
@@ -247,6 +225,21 @@ function h(string $value): string
         </p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="/assets/js/main-script.js"></script>
+
+    <script>
+        const markdown = <?= json_encode(
+            $markdown,
+            JSON_HEX_TAG
+            | JSON_HEX_AMP
+            | JSON_HEX_APOS
+            | JSON_HEX_QUOT
+        ) ?>;
+
+        const readmeContent = document.getElementById('readme-content');
+
+        readmeContent.innerHTML = marked.parse(markdown);
+    </script>
 </body>
 </html>
