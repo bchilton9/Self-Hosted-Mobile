@@ -34,7 +34,7 @@ In Organizr:
 ```html
 (function(){
   const script = document.createElement('script');
-  script.src = "https://mobile.chilsoft.com/organizr/main.js";
+  script.src = "https://bchilton9.github.io/Self-Hosted-Mobile/organizr/main.js";
   script.type = "text/javascript";
   document.head.appendChild(script);
 })();
@@ -61,7 +61,7 @@ ___
 ```html
 (function(){
   const script = document.createElement('script');
-  script.src = "https://mobile.chilsoft.com/organizr/main.js?nomenu";
+  script.src = "https://bchilton9.github.io/Self-Hosted-Mobile/organizr/main.js?nomenu";
   script.type = "text/javascript";
   document.head.appendChild(script);
 })();
